@@ -73,5 +73,5 @@ tasks.withType<KotlinCompile>() {
 }
 
 application {
-    mainClass.set("io.ktor.server.netty.EngineMain")
+    mainClass.set("reprator.dukaan.AppKt")
 }

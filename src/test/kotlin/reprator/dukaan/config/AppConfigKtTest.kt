@@ -1,4 +1,4 @@
-package reprator.dukaan
+package reprator.dukaan.config
 
 import io.ktor.application.*
 import io.ktor.http.*
@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
-class MainApplicationKtTest {
+class AppConfigKtTest{
     @Test
-    @DisplayName("Should demonstrate a simple assertion")
-    fun testRequests() = withTestApplication(Application::module) {
+    @DisplayName("Basic Test")
+    fun testRequests() = withTestApplication(Application::mainModule) {
         with(handleRequest(HttpMethod.Get, "/")) {
             assertEquals(HttpStatusCode.OK, response.status())
             assertEquals("Hi Satya", response.content)
