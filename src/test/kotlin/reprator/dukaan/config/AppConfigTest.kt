@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
-class AppConfigKtTest{
+class AppConfigTest {
+
     @Test
     @DisplayName("Basic Test")
     fun testRequests() = withTestApplication(Application::mainModule) {
@@ -16,4 +17,5 @@ class AppConfigKtTest{
             assertEquals("Hi Satya", response.content)
         }
     }
+
 }

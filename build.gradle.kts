@@ -20,14 +20,6 @@ sourceSets {
 }
 
 dependencies {
-    testImplementation(kotlin("test-junit5"))
-    testImplementation(Dependencies.Kotlin.Test.Junit5.api)
-    testRuntimeOnly(Dependencies.Kotlin.Test.Junit5.engine)
-
-    testImplementation(Dependencies.Kotlin.Test.mockk)
-    testImplementation(Dependencies.Kotlin.Test.truth)
-    testImplementation(Dependencies.Kotlin.Test.ktorServer)
-
     //ktor logging
     implementation(Dependencies.Java.logback)
     implementation(Dependencies.Kotlin.logging)
@@ -60,8 +52,17 @@ dependencies {
     implementation(Dependencies.Kotlin.Database.exposedCore)
     implementation(Dependencies.Kotlin.Database.exposedJdbc)
     implementation(Dependencies.Kotlin.Database.exposedDao)
+    implementation(Dependencies.Kotlin.Database.exposedJodaTime)
 
     implementation(Dependencies.Kotlin.hikariCp)
+
+    testImplementation(kotlin("test-junit5"))
+    testImplementation(Dependencies.Kotlin.Test.Junit5.api)
+    testRuntimeOnly(Dependencies.Kotlin.Test.Junit5.engine)
+
+    testImplementation(Dependencies.Kotlin.Test.mockk)
+    testImplementation(Dependencies.Kotlin.Test.truth)
+    testImplementation(Dependencies.Kotlin.Test.ktorServer)
 }
 
 tasks.test {
@@ -74,4 +75,8 @@ tasks.withType<KotlinCompile>() {
 
 application {
     mainClass.set("reprator.dukaan.AppKt")
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    freeCompilerArgs = listOf("-Xinline-classes")
 }

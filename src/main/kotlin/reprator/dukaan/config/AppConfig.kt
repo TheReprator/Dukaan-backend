@@ -17,9 +17,7 @@ import io.ktor.util.*
 import reprator.dukaan.features.error.ErrorFeature
 
 const val SERVER_PORT = 8080
-private const val ENDPOINT_DEV = "/api/v1/accounts"
-
-const val ACCOUNTS_ENDPOINT_ = ENDPOINT_DEV
+const val ENDPOINT_DEV = "/api/v1/accounts"
 
 
 @KtorExperimentalAPI
@@ -37,11 +35,10 @@ fun server(
     return embeddedServer(
         engine,
         port = SERVER_PORT,
-        watchPaths = listOf("mainModule"),
+        watchPaths = listOf("src/main/kotlin/reprator.dukaan"),
         module = Application::mainModule
     )
 }
-
 
 @KtorExperimentalAPI
 fun Application.mainModule() {
@@ -72,7 +69,8 @@ fun Application.mainModule() {
 
     routing {
         get("/") {
-            call.respond("Hi Satya")
+            call.respond("Hi Satya vikram")
         }
+
     }
 }
